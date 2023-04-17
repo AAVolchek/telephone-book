@@ -1,0 +1,31 @@
+<div class="card my-5">
+  <div class="card-body">
+    <form (ngSubmit)="onSubmit(firstName, lastName, phoneNumber, email, birthday, socialProfile)">
+      <div class="form-group">
+        <label for="firstName">First Name</label>
+        <input type="text" class="form-control" id="firstName" name="firstName" [(ngModel)]="firstName">
+      </div>
+      <div class="form-group">
+        <label for="lastName">Last Name</label>
+        <input type="text" class="form-control" id="lastName" name="lastName" [(ngModel)]="lastName">
+      </div>
+      <div class="form-group">
+        <label for="phoneNumber">Phone Number</label>
+        <input type="text" class="form-control" id="phoneNumber" name="phoneNumber" [(ngModel)]="phoneNumber">
+      </div>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" class="form-control" id="email" name="email" [(ngModel)]="email">
+      </div>
+      <div class="form-group">
+        <label for="birthday">Birthday</label>
+        <input type="date" class="form-control" id="birthday" name="birthday" [(ngModel)]="birthday">
+      </div>
+      <div class="form-group">
+        <label for="socialProfile">Social Profile</label>
+        <input type="text" class="form-control" id="socialProfile" name="socialProfile" [(ngModel)]="socialProfile">
+      </div>
+      <button type="submit" class="btn btn-primary">Save Contact</button>
+    </form>
+  </div>
+</div>

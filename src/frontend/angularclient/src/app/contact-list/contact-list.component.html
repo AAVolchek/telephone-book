@@ -1,0 +1,36 @@
+<div class="card my-5">
+  <div class="card-body">
+    <table class="table table-bordered table-striped">
+      <thead class="thead-dark">
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Firstname</th>
+        <th scope="col">Lastname</th>
+        <th scope="col">Phone Number</th>
+        <th scope="col">Birthday</th>
+        <th scope="col">Social Profile</th>
+        <th scope="col">Email</th>
+        <th scope="col"></th>
+        <th scope="col"></th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let contact of contacts">
+        <td>{{ contact.id }}</td>
+        <td>{{ contact.firstName}}</td>
+        <td>{{ contact.lastName}}</td>
+        <td><a href="tel:+1234567890:{{contact.phoneNumber}}">{{contact.phoneNumber}}</a></td>
+        <td>{{contact.birthday}}</td>
+        <td><a href="mailto:{{ contact.socialProfile }}">{{ contact.socialProfile }}</a></td>
+        <td><a href="mailto:{{ contact.email }}">{{ contact.email }}</a></td>
+        <td>
+          <button class="btn btn-success btn-sm" (click)="editContact(contact.id)">Edit</button>
+        </td>
+        <td>
+          <button class="btn btn-danger btn-sm" (click)="deleteContact(contact.id)">Delete</button>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
