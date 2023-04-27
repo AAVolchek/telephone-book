@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {AuthenticationService} from "./service/authentication.service";
 
 @Component({
   selector: 'app-root',
@@ -7,9 +8,24 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
 
-  title: string;
+  constructor(private authService: AuthenticationService
+  ) { }
 
-  constructor() {
-    this.title = 'Contacts';
+  isLoggedIn() {
+    return this.authService.isLoggedIn();
+  }
+
+  isShowLoginForm(){
+    if(localStorage.getItem("showLogin") == "false"){
+      return false;
+    }
+    return true;
+  }
+
+  isShowRegisterForm(){
+    if(localStorage.getItem("showRegister")  == "true"){
+      return true;
+    }
+    return false;
   }
 }

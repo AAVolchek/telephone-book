@@ -1,0 +1,42 @@
+.card {
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+input[type="text"], input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  border: none;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+button[type="submit"] {
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+  background-color: #2196f3;
+  color: #fff;
+  cursor: pointer;
+}
+
+.my-cancel-button {
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+  background-color: #ccc;
+  color: #fff;
+  cursor: pointer;
+}
+
+.alert {
+  margin-top: 20px;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: #f44336;
+  color: #fff;
+}

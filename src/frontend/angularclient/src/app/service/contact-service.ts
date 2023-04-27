@@ -1,28 +1,34 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders} from "@angular/common/http";
+import {HttpClient} from "@angular/common/http";
 import {catchError, Observable, throwError} from "rxjs";
 import {Contact} from "../model/contact";
+import {AuthenticationService} from "./authentication.service";
 
-@Injectable()
+@Injectable({
+    providedIn: 'root'
+})
 export class ContactService {
 
   private contactUrl: string;
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private authService: AuthenticationService) {
     this.contactUrl = 'http://localhost:8080/api/v1/contacts';
   }
 
   public findAll(): Observable<Contact[]> {
-    return this.http.get<Contact[]>(this.contactUrl).pipe(
+
+    return this.http.get<Contact[]>(this.contactUrl, this.authService.getAuthHeader())
+      .pipe(
       catchError(error => {
         console.error(error);
         return throwError(error);
-      })
-    );
+      }));
   }
 
   public save(contact : Contact): Observable<Contact>  {
-    return this.http.post<Contact>(this.contactUrl, contact).pipe(
+
+    return this.http.post<Contact>(this.contactUrl, contact, this.authService.getAuthHeader())
+      .pipe(
       catchError(error => {
         console.error(error);
         return throwError(error);
@@ -31,7 +37,8 @@ export class ContactService {
   }
 
   public delete (id : string): Observable<Contact> {
-    return this.http.delete<Contact>(`${this.contactUrl}/${id}`).pipe(
+    return this.http.delete<Contact>(`${this.contactUrl}/${id}`, this.authService.getAuthHeader())
+      .pipe(
     catchError(error => {
       console.error(error);
       return throwError(error);
@@ -40,7 +47,8 @@ export class ContactService {
   }
 
   public editContact(id: string, value: any): Observable<Contact>{
-    return this.http.put<Contact>(`${this.contactUrl}/${id}`, value).pipe(
+    return this.http.put<Contact>(`${this.contactUrl}/${id}`, value, this.authService.getAuthHeader())
+      .pipe(
       catchError(error => {
         console.error(error);
         return throwError(error);
@@ -48,8 +56,9 @@ export class ContactService {
     );
   }
 
-  getById(id: string): Observable<Contact> {
-    return this.http.get<Contact>(`${this.contactUrl}/${id}`).pipe(
+  public getById(id: string): Observable<Contact> {
+    return this.http.get<Contact>(`${this.contactUrl}/${id}`, this.authService.getAuthHeader())
+      .pipe(
       catchError(error => {
         console.error(error);
         return throwError(error);

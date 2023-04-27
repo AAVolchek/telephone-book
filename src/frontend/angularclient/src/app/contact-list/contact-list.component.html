@@ -1,5 +1,14 @@
+
 <div class="card my-5">
   <div class="card-body">
+    <div class="form-group">
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Search..."
+        [(ngModel)]="filterTerm"
+      />
+    </div>
     <table class="table table-bordered table-striped">
       <thead class="thead-dark">
       <tr>
@@ -15,8 +24,8 @@
       </tr>
       </thead>
       <tbody>
-      <tr *ngFor="let contact of contacts">
-        <td>{{ contact.id }}</td>
+      <tr *ngFor="let contact of contacts | filter: filterTerm; let i = index">
+        <th scope="row">{{ i + 1 }}</th>
         <td>{{ contact.firstName}}</td>
         <td>{{ contact.lastName}}</td>
         <td><a href="tel:+1234567890:{{contact.phoneNumber}}">{{contact.phoneNumber}}</a></td>

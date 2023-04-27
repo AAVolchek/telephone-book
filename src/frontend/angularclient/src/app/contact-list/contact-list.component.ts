@@ -10,12 +10,15 @@ import {Router} from "@angular/router";
 })
 export class ContactListComponent implements OnInit {
   contacts: Contact [] = [];
+  filterTerm: string;
 
   constructor(private contactService: ContactService,
               private router: Router,
-  ) { }
+  ) {}
 
   ngOnInit(): void {
+    console.log('ngOnInit start contact list');
+
     this.contactService.findAll().subscribe( data => {
       this.contacts = data;
     });

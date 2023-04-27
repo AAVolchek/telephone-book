@@ -1,0 +1,16 @@
+<div class="card my-5">
+  <div class="card-body">
+    <form (ngSubmit)="login()">
+      <input type="text" [(ngModel)]="email" name="email" placeholder="Email">
+      <input type="password" [(ngModel)]="password" name="password" placeholder="Password">
+      <div class="button-group">
+        <button name = login type="submit">Login</button>
+      </div>
+      <p></p>
+      <p>Don't have an account? <button class="my-register-button" (click)="register()">Register here</button></p>
+      <div *ngIf="errorMessage" class="alert alert-danger">{{ errorMessage }}</div>
+    </form>
+</div>
+</div>
+
+
