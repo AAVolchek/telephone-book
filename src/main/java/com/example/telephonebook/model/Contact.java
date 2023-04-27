@@ -1,9 +1,12 @@
 package com.example.telephonebook.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import lombok.*;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 
 import java.time.LocalDate;
 
@@ -31,7 +34,7 @@ public class Contact {
     private Long id;
 
     @NotBlank
-    @Column(nullable = false,name ="name")
+    @Column(nullable = false, name = "name")
     private String firstName;
 
     @Column(name = "last_name")
@@ -49,6 +52,12 @@ public class Contact {
 
     @Column(name = "social_profile")
     private String socialProfile;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id", nullable = false)
+    @OnDelete(action = OnDeleteAction.CASCADE)
+    @JsonBackReference
+    private User user;
 
     public Contact(String firstName, String lastName, String phoneNumber, String email, LocalDate birthday, String socialProfile) {
         this.firstName = firstName;
