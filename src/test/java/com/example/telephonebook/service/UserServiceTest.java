@@ -6,11 +6,9 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.ArgumentCaptor;
-import org.mockito.BDDMockito;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
-import static com.example.telephonebook.TestData.USER_ID;
 import static com.example.telephonebook.TestData.getNewUser;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
@@ -46,6 +44,6 @@ class UserServiceTest {
         User capturedUser = userArgumentCaptor.getValue();
         assertNotNull(capturedUser);
         assertThat(capturedUser).isEqualTo(user);
-    }
 
+    }
 }

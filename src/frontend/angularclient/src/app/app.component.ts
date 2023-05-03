@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 import {AuthenticationService} from "./service/authentication.service";
 
 @Component({
@@ -9,21 +9,22 @@ import {AuthenticationService} from "./service/authentication.service";
 export class AppComponent {
 
   constructor(private authService: AuthenticationService
-  ) { }
+  ) {
+  }
 
   isLoggedIn() {
     return this.authService.isLoggedIn();
   }
 
-  isShowLoginForm(){
-    if(localStorage.getItem("showLogin") == "false"){
+  isShowLoginForm() {
+    if (localStorage.getItem("showLogin") == "false") {
       return false;
     }
     return true;
   }
 
-  isShowRegisterForm(){
-    if(localStorage.getItem("showRegister")  == "true"){
+  isShowRegisterForm() {
+    if (localStorage.getItem("showRegister") == "true") {
       return true;
     }
     return false;

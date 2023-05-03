@@ -1,4 +1,4 @@
-import { Component} from '@angular/core';
+import {Component} from '@angular/core';
 import {AuthenticationService} from "../service/authentication.service";
 import {ActivatedRoute, Router} from "@angular/router";
 import {AuthenticationResponse} from "../model/authentication-response";
@@ -16,7 +16,7 @@ export class LoginComponent {
 
   constructor(private route: ActivatedRoute,
               private router: Router,
-              private authService : AuthenticationService) {
+              private authService: AuthenticationService) {
   }
 
   login() {

@@ -32,7 +32,7 @@ class ContactServiceTest {
 
     @BeforeEach
     void setUp() {
-        underTest = new ContactService(contactRepository, userRepository);
+        underTest = new ContactService(userRepository, contactRepository);
     }
 
     @Test
@@ -62,9 +62,9 @@ class ContactServiceTest {
     }
 
     @Test
-    void canSaveContact() {
+    void itShouldCheckWhenSaveContact() {
         // given
-        Contact contact = TestData.getNewContact();
+        Contact contact = TestData.getNewContactForAdd();
         given(userRepository.existsById(USER_ID)).willReturn(true);
 
         // when
@@ -82,7 +82,7 @@ class ContactServiceTest {
     }
 
     @Test
-    void canDeleteContact() {
+    void itShouldCheckWhenDeleteContact() {
         // given
         given(contactRepository.selectExistsUser(CONTACT_ID, USER_ID))
                 .willReturn(true);

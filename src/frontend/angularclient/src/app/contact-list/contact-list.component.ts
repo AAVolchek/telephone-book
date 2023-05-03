@@ -14,20 +14,21 @@ export class ContactListComponent implements OnInit {
 
   constructor(private contactService: ContactService,
               private router: Router,
-  ) {}
+  ) {
+  }
 
   ngOnInit(): void {
     console.log('ngOnInit start contact list');
 
-    this.contactService.findAll().subscribe( data => {
+    this.contactService.findAll().subscribe(data => {
       this.contacts = data;
     });
   }
 
   deleteContact(id: string) {
-     this.contactService.delete(id).subscribe(() => {
-       this.ngOnInit();
-     });
+    this.contactService.delete(id).subscribe(() => {
+      this.ngOnInit();
+    });
   }
 
   editContact(id: string) {

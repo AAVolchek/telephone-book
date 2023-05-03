@@ -3,29 +3,29 @@
     <form (ngSubmit)="onSubmit(firstName, lastName, phoneNumber, email, birthday, socialProfile)">
       <div class="form-group">
         <label for="firstName">First Name</label>
-        <input type="text" class="form-control" id="firstName" name="firstName" [(ngModel)]="firstName">
+        <input [(ngModel)]="firstName" class="form-control" id="firstName" name="firstName" type="text">
       </div>
       <div class="form-group">
         <label for="lastName">Last Name</label>
-        <input type="text" class="form-control" id="lastName" name="lastName" [(ngModel)]="lastName">
+        <input [(ngModel)]="lastName" class="form-control" id="lastName" name="lastName" type="text">
       </div>
       <div class="form-group">
         <label for="phoneNumber">Phone Number</label>
-        <input type="text" class="form-control" id="phoneNumber" name="phoneNumber" [(ngModel)]="phoneNumber">
+        <input [(ngModel)]="phoneNumber" class="form-control" id="phoneNumber" name="phoneNumber" type="text">
       </div>
       <div class="form-group">
         <label for="email">Email</label>
-        <input type="email" class="form-control" id="email" name="email" [(ngModel)]="email">
+        <input [(ngModel)]="email" class="form-control" id="email" name="email" type="email">
       </div>
       <div class="form-group">
         <label for="birthday">Birthday</label>
-        <input type="date" class="form-control" id="birthday" name="birthday" [(ngModel)]="birthday">
+        <input [(ngModel)]="birthday" class="form-control" id="birthday" name="birthday" type="date">
       </div>
       <div class="form-group">
         <label for="socialProfile">Social Profile</label>
-        <input type="text" class="form-control" id="socialProfile" name="socialProfile" [(ngModel)]="socialProfile">
+        <input [(ngModel)]="socialProfile" class="form-control" id="socialProfile" name="socialProfile" type="text">
       </div>
-      <button type="submit" class="btn btn-primary">Save Contact</button>
+      <button class="btn btn-primary" type="submit">Save Contact</button>
     </form>
   </div>
 </div>

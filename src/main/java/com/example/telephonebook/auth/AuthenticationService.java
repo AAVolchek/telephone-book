@@ -2,14 +2,12 @@ package com.example.telephonebook.auth;
 
 
 import com.example.telephonebook.config.JwtService;
-
 import com.example.telephonebook.model.Role;
 import com.example.telephonebook.model.User;
 import com.example.telephonebook.repository.UserRepository;
 import com.example.telephonebook.token.Token;
 import com.example.telephonebook.token.TokenRepository;
 import com.example.telephonebook.token.TokenType;
-
 import com.fasterxml.jackson.databind.ObjectMapper;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -97,7 +95,7 @@ public class AuthenticationService {
         final String authHeader = request.getHeader(HttpHeaders.AUTHORIZATION);
         final String refreshToken;
         final String userEmail;
-        if (authHeader == null ||!authHeader.startsWith("Bearer ")) {
+        if (authHeader == null || !authHeader.startsWith("Bearer ")) {
             return;
         }
         refreshToken = authHeader.substring(7);

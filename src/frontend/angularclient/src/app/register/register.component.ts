@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {AuthenticationService} from "../service/authentication.service";
 import {User} from "../model/user";
 
@@ -14,7 +14,8 @@ export class RegisterComponent implements OnInit {
   password: string;
   errorMessage: string;
 
-  constructor(private authService: AuthenticationService) { }
+  constructor(private authService: AuthenticationService) {
+  }
 
   ngOnInit(): void {
     console.log(" register form open ");
@@ -28,11 +29,11 @@ export class RegisterComponent implements OnInit {
     const user = new User(null, this.name, this.email, this.password);
     this.authService.register(user)
       .subscribe({
-        next: (_data : User) => {
+        next: (_data: User) => {
           console.log('Registration successful');
           this.authService.showLoginForm();
         },
-        error: (error : any) => {
+        error: (error: any) => {
           console.log('Registration failed:', error);
           this.errorMessage = 'Invalid email or password';
         }
@@ -43,7 +44,7 @@ export class RegisterComponent implements OnInit {
     this.showLoginForm();
   }
 
-  private showLoginForm(){
+  private showLoginForm() {
     this.authService.showLoginForm();
   }
 }

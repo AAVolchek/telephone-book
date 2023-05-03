@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from "@angular/router";
 import {UserService} from "../service/user.service";
 import {User} from "../model/user";
@@ -46,15 +46,15 @@ export class UserFormComponent implements OnInit {
       this.user = this.userForm.value;
       this.userService.editUser(this.id, this.user)
         .subscribe({
-        next: (_data : User) => {
-          console.log('Update successful');
-          this.gotoContactList();
-        },
-        error: (error : any) => {
-          console.log('Update failed:', error);
-          this.errorMessage = 'Invalid email or password';
-        }
-      });
+          next: (_data: User) => {
+            console.log('Update successful');
+            this.gotoContactList();
+          },
+          error: (error: any) => {
+            console.log('Update failed:', error);
+            this.errorMessage = 'Invalid email or password';
+          }
+        });
     }
   }
 

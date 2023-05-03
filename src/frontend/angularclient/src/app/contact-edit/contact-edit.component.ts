@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup} from "@angular/forms";
 import {ActivatedRoute, Router} from "@angular/router";
 import {Contact} from "../model/contact";
@@ -12,7 +12,7 @@ import {ContactService} from "../service/contact-service";
 export class ContactEditComponent implements OnInit {
 
   contact: Contact;
-  id : string;
+  id: string;
   firstName: string;
   lastName: string;
   phoneNumber: string;
@@ -43,20 +43,20 @@ export class ContactEditComponent implements OnInit {
     this.id = this.route.snapshot.params['id'];
     console.log(this.id);
     this.contactService.getById(this.id)
-          .subscribe((res)=>{
-          this.editFrom.patchValue({
-            firstName: res.firstName,
-            lastName: res.lastName,
-            phoneNumber: res.phoneNumber,
-            email: res.email,
-            birthday: res.birthday,
-            socialProfile: res.socialProfile,
-          })
-        });
+      .subscribe((res) => {
+        this.editFrom.patchValue({
+          firstName: res.firstName,
+          lastName: res.lastName,
+          phoneNumber: res.phoneNumber,
+          email: res.email,
+          birthday: res.birthday,
+          socialProfile: res.socialProfile,
+        })
+      });
   }
 
   onSubmit() {
-    this.contactService.editContact(this.id, this.contact).subscribe( result => this.gotoContactList())
+    this.contactService.editContact(this.id, this.contact).subscribe(result => this.gotoContactList())
   }
 
   gotoContactList() {

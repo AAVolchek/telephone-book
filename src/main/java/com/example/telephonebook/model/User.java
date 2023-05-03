@@ -26,6 +26,10 @@ import java.util.List;
 @Entity
 @Table(name = "users")
 public class User implements UserDetails {
+    @NotBlank
+    @Size(min = 2, max = 128)
+    @Column(name = "name", nullable = false)
+    protected String name;
     @Id
     @SequenceGenerator(
             name = "user_sequence",
@@ -37,12 +41,6 @@ public class User implements UserDetails {
             strategy = GenerationType.SEQUENCE)
     @Column(name = "id", nullable = false)
     private Long id;
-
-    @NotBlank
-    @Size(min = 2, max = 128)
-    @Column(name = "name", nullable = false)
-    protected String name;
-
     @Column(name = "email", nullable = false, unique = true)
     @Email
     @NotBlank

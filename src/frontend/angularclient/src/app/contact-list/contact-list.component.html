@@ -1,12 +1,11 @@
-
 <div class="card my-5">
   <div class="card-body">
     <div class="form-group">
       <input
-        type="text"
+        [(ngModel)]="filterTerm"
         class="form-control"
         placeholder="Search..."
-        [(ngModel)]="filterTerm"
+        type="text"
       />
     </div>
     <table class="table table-bordered table-striped">
@@ -33,10 +32,10 @@
         <td><a href="mailto:{{ contact.socialProfile }}">{{ contact.socialProfile }}</a></td>
         <td><a href="mailto:{{ contact.email }}">{{ contact.email }}</a></td>
         <td>
-          <button class="btn btn-success btn-sm" (click)="editContact(contact.id)">Edit</button>
+          <button (click)="editContact(contact.id)" class="btn btn-success btn-sm">Edit</button>
         </td>
         <td>
-          <button class="btn btn-danger btn-sm" (click)="deleteContact(contact.id)">Delete</button>
+          <button (click)="deleteContact(contact.id)" class="btn btn-danger btn-sm">Delete</button>
         </td>
       </tr>
       </tbody>

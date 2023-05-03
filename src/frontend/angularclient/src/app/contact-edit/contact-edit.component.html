@@ -1,31 +1,34 @@
 <div class="card my-5">
   <div class="card-body">
-    <form [formGroup]="editFrom" (ngSubmit)="onSubmit()">
+    <form (ngSubmit)="onSubmit()" [formGroup]="editFrom">
       <div class="form-group">
         <label for="firstName">First Name</label>
-        <input type="text" class="form-control" id="firstName" formControlName="firstName" [(ngModel)]="contact.firstName">
+        <input [(ngModel)]="contact.firstName" class="form-control" formControlName="firstName" id="firstName"
+               type="text">
       </div>
       <div class="form-group">
         <label for="lastName">Last Name</label>
-        <input type="text" class="form-control" id="lastName" formControlName="lastName" [(ngModel)]="contact.lastName">
+        <input [(ngModel)]="contact.lastName" class="form-control" formControlName="lastName" id="lastName" type="text">
       </div>
       <div class="form-group">
         <label for="phoneNumber">Phone Number</label>
-        <input type="text" class="form-control" id="phoneNumber" formControlName="phoneNumber" [(ngModel)]="contact.phoneNumber">
+        <input [(ngModel)]="contact.phoneNumber" class="form-control" formControlName="phoneNumber" id="phoneNumber"
+               type="text">
       </div>
       <div class="form-group">
         <label for="email">Email</label>
-        <input type="email" class="form-control" id="email" formControlName="email" [(ngModel)]="contact.email">
+        <input [(ngModel)]="contact.email" class="form-control" formControlName="email" id="email" type="email">
       </div>
       <div class="form-group">
         <label for="birthday">Birthday</label>
-        <input type="date" class="form-control" id="birthday" formControlName="birthday" [(ngModel)]="contact.birthday">
+        <input [(ngModel)]="contact.birthday" class="form-control" formControlName="birthday" id="birthday" type="date">
       </div>
       <div class="form-group">
         <label for="socialProfile">Social Profile</label>
-        <input type="text" class="form-control" id="socialProfile" formControlName="socialProfile" [(ngModel)]="contact.socialProfile">
+        <input [(ngModel)]="contact.socialProfile" class="form-control" formControlName="socialProfile" id="socialProfile"
+               type="text">
       </div>
-      <button type="submit" class="btn btn-primary">Save Contact</button>
+      <button class="btn btn-primary" type="submit">Save Contact</button>
     </form>
   </div>
 </div>

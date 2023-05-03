@@ -1,8 +1,8 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {catchError, Observable, throwError} from "rxjs";
 import {AuthenticationResponse} from "../model/authentication-response";
-import { tap } from 'rxjs/operators';
+import {tap} from 'rxjs/operators';
 import {AuthenticationRequest} from "../model/authentication-request";
 import {User} from "../model/user";
 
@@ -20,7 +20,7 @@ export class AuthenticationService {
   }
 
   public authenticate(email: string, password: string): Observable<AuthenticationResponse> {
-    const authRequest: AuthenticationRequest = { email, password };
+    const authRequest: AuthenticationRequest = {email, password};
     return this.http.post<AuthenticationResponse>(this.authenticateUrl, authRequest)
       .pipe(
         tap(data => console.log('Authentication response:', data)),
@@ -31,15 +31,15 @@ export class AuthenticationService {
       );
   }
 
-  public register(user : User): Observable<User>{
-    return this.http.post<User>(this.registerUrl,user)
+  public register(user: User): Observable<User> {
+    return this.http.post<User>(this.registerUrl, user)
       .pipe(
         tap(data => console.log('Registration response:', data)),
         catchError(error => {
           console.error(error);
           return throwError(error);
-      })
-    );
+        })
+      );
   }
 
   public logout() {
@@ -50,7 +50,7 @@ export class AuthenticationService {
     return localStorage.getItem('access_token') !== null;
   }
 
-  public getAuthHeader(){
+  public getAuthHeader() {
 
     const httpOptions = {
       headers: new HttpHeaders({

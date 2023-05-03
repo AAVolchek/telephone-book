@@ -1,11 +1,9 @@
 package com.example.telephonebook.service;
 
 import com.example.telephonebook.exception.IllegalRequestDataException;
-
 import com.example.telephonebook.model.User;
 import com.example.telephonebook.repository.UserRepository;
 import lombok.AllArgsConstructor;
-
 import org.springframework.stereotype.Service;
 
 @Service

@@ -15,8 +15,8 @@ import static com.example.telephonebook.util.Validation.checkNotFoundWithId;
 @AllArgsConstructor
 public class ContactService {
 
-    private ContactRepository contactRepository;
     private final UserRepository userRepository;
+    private ContactRepository contactRepository;
 
     public List<Contact> getAllContacts(Long usedId) {
         return contactRepository.getAll(usedId);
