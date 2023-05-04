@@ -19,7 +19,7 @@ public class TestData {
                 "+12125555550",
                 "DeanRobTest@gmail.com",
                 LocalDate.of(1991, 5, 6),
-                "instagram/Dean13");
+                "instagram/Dean13", "");
         contact.setId(CONTACT_ID);
         return contact;
     }
@@ -52,7 +52,7 @@ public class TestData {
                 "+12125555550",
                 "DeanJee@gmail.com",
                 LocalDate.of(1985, 1, 1),
-                "instagram/DeanJee2");
+                "instagram/DeanJee2", "");
         contact.setUser(getNewUser());
         return contact;
     }

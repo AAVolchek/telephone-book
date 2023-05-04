@@ -18,6 +18,7 @@
         <th scope="col">Birthday</th>
         <th scope="col">Social Profile</th>
         <th scope="col">Email</th>
+        <th scope="col">Group</th>
         <th scope="col"></th>
         <th scope="col"></th>
       </tr>
@@ -31,6 +32,7 @@
         <td>{{contact.birthday}}</td>
         <td><a href="mailto:{{ contact.socialProfile }}">{{ contact.socialProfile }}</a></td>
         <td><a href="mailto:{{ contact.email }}">{{ contact.email }}</a></td>
+        <td>{{ contact.group}}</td>
         <td>
           <button (click)="editContact(contact.id)" class="btn btn-success btn-sm">Edit</button>
         </td>

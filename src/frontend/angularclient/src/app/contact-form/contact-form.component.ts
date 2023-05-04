@@ -2,6 +2,7 @@ import {Component} from '@angular/core';
 import {Contact} from "../model/contact";
 import {ContactService} from "../service/contact-service";
 import {ActivatedRoute, Router} from "@angular/router";
+import {GroupContactModule} from "../model/group-contact.module";
 
 @Component({
   selector: 'app-contact-form',
@@ -17,6 +18,7 @@ export class ContactFormComponent {
   email: string;
   birthday: Date;
   socialProfile: string;
+  group: string;
 
   constructor(
     private route: ActivatedRoute,
@@ -25,9 +27,9 @@ export class ContactFormComponent {
   ) {
   }
 
-  onSubmit(firstName: string, lastName: string, phoneNumber: string, email: string, birthday: Date, socialProfile: string) {
+  onSubmit(firstName: string, lastName: string, phoneNumber: string, email: string, birthday: Date, socialProfile: string, group: string) {
 
-    this.contact = new Contact(firstName, lastName, phoneNumber, email, birthday, socialProfile);
+    this.contact = new Contact(firstName, lastName, phoneNumber, email, birthday, socialProfile, group);
     this.contactService.save(this.contact).subscribe(result => this.gotoContactList());
   }
 

@@ -3,6 +3,7 @@ import {FormBuilder, FormControl, FormGroup} from "@angular/forms";
 import {ActivatedRoute, Router} from "@angular/router";
 import {Contact} from "../model/contact";
 import {ContactService} from "../service/contact-service";
+import {GroupContactModule} from "../model/group-contact.module";
 
 @Component({
   selector: 'app-contact-edit',
@@ -20,6 +21,7 @@ export class ContactEditComponent implements OnInit {
   birthday: Date;
   socialProfile: string;
   editFrom: FormGroup;
+  group: string;
 
   constructor(
     private fb: FormBuilder,
@@ -33,13 +35,14 @@ export class ContactEditComponent implements OnInit {
       phoneNumber: new FormControl(''),
       email: new FormControl(''),
       birthday: new FormControl(''),
-      socialProfile: new FormControl('')
+      socialProfile: new FormControl(''),
+      group: new FormControl('')
     });
 
   }
 
   ngOnInit(): void {
-    this.contact = new Contact(this.firstName, this.lastName, this.phoneNumber, this.email, this.birthday, this.socialProfile);
+    this.contact = new Contact(this.firstName, this.lastName, this.phoneNumber, this.email, this.birthday, this.socialProfile, this.group);
     this.id = this.route.snapshot.params['id'];
     console.log(this.id);
     this.contactService.getById(this.id)
@@ -51,6 +54,7 @@ export class ContactEditComponent implements OnInit {
           email: res.email,
           birthday: res.birthday,
           socialProfile: res.socialProfile,
+          group: res.group
         })
       });
   }

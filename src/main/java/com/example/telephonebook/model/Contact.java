@@ -53,18 +53,22 @@ public class Contact {
     @Column(name = "social_profile")
     private String socialProfile;
 
+    @Column(name ="group_name")
+    private String group;
+
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id", nullable = false)
     @OnDelete(action = OnDeleteAction.CASCADE)
     @JsonBackReference
     private User user;
 
-    public Contact(String firstName, String lastName, String phoneNumber, String email, LocalDate birthday, String socialProfile) {
+    public Contact(String firstName, String lastName, String phoneNumber, String email, LocalDate birthday, String socialProfile, String group) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.phoneNumber = phoneNumber;
         this.email = email;
         this.birthday = birthday;
         this.socialProfile = socialProfile;
+        this.group = group;
     }
 }
