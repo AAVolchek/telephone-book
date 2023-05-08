@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Contact Import/Export</title>
+</head>
+<body>
+<h1>Contact Import/Export</h1>
+<p>CSV format: First name, Last name, Phone Number, Birthday, Social Profile, Email, Group.</p>
+<!-- Import contacts form -->
+<form (submit)="onImport($event)" enctype="multipart/form-data">
+  <div class="form-group">
+    <label for="file">Choose CSV file to import:</label>
+    <input #fileInput type="file" id="file" name="file" class="form-control" accept=".csv">
+  </div>
+  <button type="submit" class="btn btn-primary">Import</button>
+</form>
+
+<!-- Export contacts button -->
+<button (click)="onExport()" class="btn btn-primary">Export</button>
+<p></p>
+<div *ngIf="errorMessage" class="alert alert-danger">{{ errorMessage }}</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.3/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+</html>

@@ -3,7 +3,6 @@ import {FormBuilder, FormControl, FormGroup} from "@angular/forms";
 import {ActivatedRoute, Router} from "@angular/router";
 import {Contact} from "../model/contact";
 import {ContactService} from "../service/contact-service";
-import {GroupContactModule} from "../model/group-contact.module";
 
 @Component({
   selector: 'app-contact-edit',

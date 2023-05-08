@@ -2,7 +2,6 @@ import {Component} from '@angular/core';
 import {Contact} from "../model/contact";
 import {ContactService} from "../service/contact-service";
 import {ActivatedRoute, Router} from "@angular/router";
-import {GroupContactModule} from "../model/group-contact.module";
 
 @Component({
   selector: 'app-contact-form',

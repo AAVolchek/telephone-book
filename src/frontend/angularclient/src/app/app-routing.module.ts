@@ -6,6 +6,8 @@ import {ContactEditComponent} from "./contact-edit/contact-edit.component";
 import {LoginComponent} from "./login/login.component";
 import {RegisterComponent} from "./register/register.component";
 import {UserFormComponent} from "./user-form/user-form.component";
+import {ImportExportContactsComponent} from "./import-export-contacts/import-export-contacts.component";
+
 
 const routes: Routes = [
   {path: 'api/v1/contacts', component: ContactListComponent},
@@ -21,6 +23,9 @@ const routes: Routes = [
   },
   {
     path: 'api/v1/user', component: UserFormComponent
+  },
+  {
+    path: 'importExportContacts', component: ImportExportContactsComponent
   }
 ];
 

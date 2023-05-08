@@ -14,6 +14,7 @@ import {HomeComponent} from './home/home.component';
 import {RegisterComponent} from './register/register.component';
 import {Ng2SearchPipeModule} from 'ng2-search-filter';
 import {UserFormComponent} from './user-form/user-form.component';
+import { ImportExportContactsComponent } from './import-export-contacts/import-export-contacts.component';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import {UserFormComponent} from './user-form/user-form.component';
     LoginComponent,
     HomeComponent,
     RegisterComponent,
-    UserFormComponent
+    UserFormComponent,
+    ImportExportContactsComponent
   ],
   imports: [
     BrowserModule,
